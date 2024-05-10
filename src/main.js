@@ -17,7 +17,13 @@ k.loadSprite("spritesheet", "./spritesheet.png", {
 
 k.loadSprite("map", "./map.png");
 
-k.setBackground(k.Color.fromHex("#311047"));
+k.setBackground(k.Color.fromHex("#000000"));
+
+// Load the background music file
+k.loadSound("bgMusic", "./adventure.mp3");
+
+// Play the background music when the scene starts
+k.play("bgMusic", { loop: true });
 
 k.scene("main", async () => {
   const mapData = await (await fetch("./map.json")).json();
