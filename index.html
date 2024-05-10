@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kharlroth vs The Mars Invaders</title>
+    <title>Kharlroth Adventures</title>
   </head>
   <body>
     <style>
@@ -31,6 +31,27 @@
         right: 10%;
         bottom: 2vh;
         min-height: 10vh;
+        background: white;
+        border-radius: 3px;
+        outline-style: solid;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        word-spacing: 0.2rem;
+        filter: drop-shadow(0 0 0.75rem rgb(112, 112, 112));
+        /* overflow: auto; */
+      }
+
+      #welcome-textbox {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 60vw; /* Adjust as needed */
+        min-height: 50vh;
         background: white;
         border-radius: 3px;
         outline-style: solid;
@@ -85,6 +106,14 @@
       <div>
         <p class="note">Tap/Click around to move</p>
         <p class="bye">Close Tab to exit</p>
+        <div id="welcome-textbox-container">
+          <div id="welcome-textbox">
+            <p id="welcome-dialogue" class="ui-text"></p>
+            <div class="btn-container">
+              <button id="close-welcome" class="ui-close-btn">Close</button>
+            </div>
+          </div>
+        </div>
         <div id="textbox-container" style="display: none">
           <div id="textbox">
             <p id="dialogue" class="ui-text"></p>

@@ -1,6 +1,7 @@
 import { dialogueData, scaleFactor } from "./constants";
 import { k } from "./kaboomCtx";
 import { displayDialogue, setCamScale } from "./utils";
+import { displayWelcomeDialogue } from "./utils";
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
   sliceX: 39,
@@ -20,10 +21,10 @@ k.loadSprite("map", "./map.png");
 k.setBackground(k.Color.fromHex("#000000"));
 
 // Load the background music file
-k.loadSound("bgMusic", "./adventure.mp3");
+// k.loadSound("bgMusic", "./adventure.mp3");
 
 // Play the background music when the scene starts
-k.play("bgMusic", { loop: true });
+// k.play("bgMusic", { loop: true });
 
 k.scene("main", async () => {
   const mapData = await (await fetch("./map.json")).json();
@@ -47,6 +48,12 @@ k.scene("main", async () => {
     },
     "player",
   ]);
+
+
+  displayWelcomeDialogue(
+    dialogueData["welcome"],
+    () => (player.isInDialogue = false)
+  );
 
   for (const layer of layers) {
     if (layer.name === "boundaries") {
