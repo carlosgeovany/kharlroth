@@ -8,10 +8,10 @@ export const dialogueData = {
   bed: `This where I sleep. Great ideas comes when I'm lying on my bed. When an idea strikes, I often have to write it down or else I won't be able to sleep because my mental energy is consumed by it.`,
   resume: `This is my desk and on it is my resume. <a href="https://raw.githubusercontent.com/carlosgeovany/carlosgeovany.github.io/main/assets/docs/CarlosPerezResume.pdf" target="_blank">Check it out?</a>
   Here's a link to my <a href="https://carlosgeovany.github.io" target="_blank">Website</a>. Contact me if you have any interesting job opportunities!`,
-  library: `There are a lot of books on my shelves. One of my favorites topics is The Vikings, also have a lot of Sociology books (I also have a Bachelor's degree in Sociology btw).`,
+  library: `There are a lot of books on my shelves. One of my favorites topics are the Vikings and the Norse mythology, also have a lot of Sociology books (I also have a Bachelor's degree in Sociology btw).`,
   exit: `Ready to go explore the outside world? Let's go...`,
   welcome:`Welcome to the world of Kharlroth!<br>
   My name is Kharlroth, and I invite you to explore this magical world with me. It's going to be a fun adventure!
   `, 
-  
+  lisa:`This Lisa, my pup. I love her...&#10084 She's the must fun to be with.`
 };

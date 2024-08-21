@@ -3,31 +3,32 @@ import { k } from "./kaboomCtx";
 import { displayDialogue, setCamScale } from "./utils";
 import { displayWelcomeDialogue } from "./utils";
 
-k.loadSprite("spritesheet", "./spritesheet.png", {
-  sliceX: 39,
-  sliceY: 31,
+k.loadSprite("spritesheet", "./player.png", {
+  sliceX: 3,
+  sliceY: 4,
   anims: {
-    "idle-down": 936,
-    "walk-down": { from: 936, to: 939, loop: true, speed: 8 },
-    "idle-side": 975,
-    "walk-side": { from: 975, to: 978, loop: true, speed: 8 },
-    "idle-up": 1014,
-    "walk-up": { from: 1014, to: 1017, loop: true, speed: 8 },
+    "idle-down": 0,
+    "walk-down": { from: 0, to: 2, loop: true, speed: 8 },
+    "idle-side": 6,
+    "walk-side": { from: 6, to: 8, loop: true, speed: 8 },
+    "idle-up": 9,
+    "walk-up": { from: 9, to: 11, loop: true, speed: 8 },
   },
 });
 
-k.loadSprite("map", "./map.png");
+
+k.loadSprite("map", "./midgard.png");
 
 k.setBackground(k.Color.fromHex("#000000"));
 
 // Load the background music file
-// k.loadSound("bgMusic", "./adventure.mp3");
+k.loadSound("bgMusic", "./adventure.mp3");
 
 // Play the background music when the scene starts
-// k.play("bgMusic", { loop: true });
+k.play("bgMusic", { loop: true });
 
-k.scene("main", async () => {
-  const mapData = await (await fetch("./map.json")).json();
+k.scene("midgard", async () => {
+  const mapData = await (await fetch("./midgard.json")).json();
   const layers = mapData.layers;
 
   const map = k.add([k.sprite("map"), k.pos(0), k.scale(scaleFactor)]);
@@ -49,12 +50,6 @@ k.scene("main", async () => {
     "player",
   ]);
 
-
-  displayWelcomeDialogue(
-    dialogueData["welcome"],
-    () => (player.isInDialogue = false)
-  );
-
   for (const layer of layers) {
     if (layer.name === "boundaries") {
       for (const boundary of layer.objects) {
@@ -66,6 +61,11 @@ k.scene("main", async () => {
           k.pos(boundary.x, boundary.y),
           boundary.name,
         ]);
+
+        // displayWelcomeDialogue(
+        //   dialogueData["welcome"],
+        //   () => (player.isInDialogue = false)
+        // );
 
         if (boundary.name) {
           player.onCollide(boundary.name, () => {
@@ -218,4 +218,4 @@ k.scene("main", async () => {
   });
 });
 
-k.go("main");
+k.go("midgard");
